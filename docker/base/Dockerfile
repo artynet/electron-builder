@@ -1,4 +1,4 @@
-FROM buildpack-deps:bionic-curl
+FROM buildpack-deps:groovy-curl
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -10,8 +10,8 @@ RUN apt-get -qq update && apt-get -qq dist-upgrade && \
   # python for node-gyp
   # rpm is required for FPM to build rpm package
   # libsecret-1-dev and libgnome-keyring-dev are required even for prebuild keytar
-  apt-get -qq install --no-install-recommends qtbase5-dev bsdtar build-essential autoconf libssl-dev gcc-multilib g++-multilib lzip rpm python libcurl4 git git-lfs ssh unzip \
-  libsecret-1-dev libgnome-keyring-dev \
+  apt-get -qq install --no-install-recommends qtbase5-dev tar build-essential autoconf libssl-dev gcc-multilib g++-multilib lzip rpm python libcurl4 git git-lfs ssh unzip \
+  libsecret-1-dev debian-archive-keyring debian-keyring ubuntu-keyring vim nano p7zip-full apt-utils \
   libopenjp2-tools && \
   # git-lfs
   git lfs install && \
