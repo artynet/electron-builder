@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends software-proper
   # clean
   apt-get clean && rm -rf /var/lib/apt/lists/* && unlink winehq.key
 
-RUN curl -L https://github.com/electron-userland/electron-builder-binaries/releases/download/wine-2.0.3-mac-10.13/wine-home.zip > /tmp/wine-home.zip && unzip /tmp/wine-home.zip -d /root/.wine && unlink /tmp/wine-home.zip
+RUN curl -L https://github.com/electron-userland/electron-builder-binaries/releases/download/wine-4.0.1-mac/wine-4.0.1-mac.7z > /tmp/wine-home.7z && 7z x -t7z /tmp/wine-home.7z -o/root/.wine && unlink /tmp/wine-home.7z
 
 ENV WINEDEBUG -all,err+all
 ENV WINEDLLOVERRIDES winemenubuilder.exe=d
